@@ -32,4 +32,5 @@ VALUES
 select distinct (p.name),p.price  from products p
 where p.price = (select max(p.price) from products p) ;
 
-
+select distinct (p.name),p.price  from products p
+where p.price > (select avg(p.price) from products p) ;
