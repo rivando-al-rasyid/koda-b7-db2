@@ -14,7 +14,7 @@ VALUES
 (102,'mouse',1,15),
 (101,'monitor',1,200),
 (103,'keyboard',1,25),
-(101,'mouse',3,15)
+(101,'mouse',3,15);
 
 with calculate AS (
     SELECT customer_id, product ,  sum(quantity) as totalquan,sum(quantity * price_per_unit)  as totaltrans
