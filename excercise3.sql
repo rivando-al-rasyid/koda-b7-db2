@@ -25,7 +25,14 @@ SELECT customer_id, product, totaltrans
 FROM calculate
 WHERE product = 'keyboard' AND totaltrans > 30;
 
+with calculate AS (
+    SELECT customer_id, product ,  sum(quantity) as totalquan,sum(quantity * price_per_unit)  as totaltrans
+    from transactionelectro
+        group by customer_id ,product )
 
+SELECT customer_id, product, totaltrans
+FROM calculate
+WHERE product = 'keyboard' AND totaltrans > 30;
 with calculate AS (
     SELECT customer_id, product ,  quantity,sum(quantity * price_per_unit)  as totaltrans
     from transactionelectro
