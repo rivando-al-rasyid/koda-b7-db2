@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS transaction(
     amount INT
 );
 
-TRUNCATE TABLE transaction
+-- TRUNCATE TABLE transaction
 
 INSERT INTO transaction(customer_id, amount)
 VALUES
