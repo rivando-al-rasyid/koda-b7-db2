@@ -17,17 +17,23 @@ VALUES
 (101,'mouse',3,15)
 
 with calculate AS (
-    SELECT customer_id, product ,  sum(quantity) AS totalquan,sum(quantity * price_per_unit)  as totaltrans
+    SELECT customer_id, product ,  sum(quantity) as totalquan,sum(quantity * price_per_unit)  as totaltrans
     from transactionelectro
         group by customer_id ,product )
 
-SELECT customer_id,product, totaltrans
+SELECT customer_id, product, totaltrans
 FROM calculate
-where product = 'keyboard' and totaltrans > 30;
+WHERE product = 'keyboard' AND totaltrans > 30;
 
 
+with calculate AS (
+    SELECT customer_id, product ,  quantity,sum(quantity * price_per_unit)  as totaltrans
+    from transactionelectro
+        group by customer_id ,product ,quantity )
 
-
+SELECT customer_id, product , quantity
+FROM calculate
+where quantity = 1;
 
 
 -- select t.customer_id,t.amount  from transaction t
