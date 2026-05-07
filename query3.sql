@@ -7,6 +7,7 @@ FROM movies m
 GROUP BY d.id,
     d.first_name
 ORDER BY d.first_name;
+
 -- counting role
 SELECT a.first_name AS actor_name,
     COUNT(ma.role) AS total_role
@@ -16,6 +17,7 @@ FROM movies m
 GROUP BY a.id , a.first_name
 HAVING COUNT(ma.role) > 5
 ORDER BY actor_name;
+
 --  most productive director
 SELECT d.first_name AS director_name,
     COUNT(m.id) AS movie_count
@@ -33,6 +35,7 @@ FROM movies m
 GROUP BY EXTRACT('year',m.release_date) (m.release_date)
 ORDER BY jumlah_film DESC
 LIMIT 1;
+
 -- movie and their actor
 SELECT m.title,
     m.release_date,
